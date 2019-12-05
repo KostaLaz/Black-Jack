@@ -1,0 +1,40 @@
+.container-5{
+    border: 1px solid black;
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+}
+.flex-black-jack-row-1, .flex-black-jack-row-2, .flex-black-jack-row-3{
+    display: flex;
+    border: 1px solid black;
+    padding:  10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.flex-black-jack-row-1, .flex-black-jack-row-2{
+    background: url('https://www.hdbacks.com/assets/thumbnails/hd440.jpg') center;
+    color: #ffffff;
+}
+.flex-black-jack-row-1 div{
+    border: 1px solid black;
+    flex: 1;
+    padding: 10px;
+    height: 350px;
+    text-align: center;
+}
+.flex-black-jack-row-1 img{
+    height: 25%;
+}
+.flex-black-jack-row-2 btn{
+    border: 1px solid black;
+    padding: 10px;
+}
+.flex-black-jack-row-2 div{
+    border: 1px solid black;
+    padding: 10px;
+}
+table, th, td{
+    padding: 5px;
+    border: 1px solid black;
+}
