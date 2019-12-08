@@ -13,6 +13,7 @@ document.querySelector('#deal-btn').addEventListener('click', blackJackDeal);
 
 function blackJackHit(){
    showCard(YOU);
+   showCard(DEALER);
 }
 function showCard(activePlayer){
     let cardImg = document.createElement('img');
@@ -22,9 +23,12 @@ function showCard(activePlayer){
 }
 function blackJackDeal(){
     let yourImages = document.querySelector('#your-box').querySelectorAll('img');
-    console.log(yourImages);
+    let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img');
     for(let i = 0; yourImages.length; i++){
         yourImages[i].remove();
+    }
+    for(let i = 0; i<dealerImages.length; i++){
+        dealerImages[i].remove();
     }
 }
 
