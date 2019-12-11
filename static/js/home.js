@@ -13,6 +13,8 @@ document.querySelector('#hit-btn').addEventListener('click', blackJackHit);
 document.querySelector('#deal-btn').addEventListener('click', blackJackDeal);
 
 function blackJackHit(){
+    let card = randomCard();
+    console.log(card);
    showCard(YOU);
    showCard(DEALER);
 }
@@ -33,7 +35,7 @@ function blackJackDeal(){
     }
 }
 function randomCard(){
-  let randomIndex = Math.floor().Math.random()*13;
+  let randomIndex = Math.floor(Math.random()*13);
   return blackJackGame['cards'][randomIndex];
 }
 
