@@ -20,7 +20,6 @@ function blackJackHit(){
    showCard(card, YOU);
    updateScore(card, YOU);
    showScore(card, YOU);
-   console.log(YOU['score']);
 }
 
 //Choose a random card from the deck
@@ -31,10 +30,12 @@ function randomCard(){
 
   //Show the random card img and value
 function showCard(card, activePlayer){
+   if(activePlayer['score'] <= 21){ 
     let cardImg = document.createElement('img');
     cardImg.src = `static/images/${card}.png`
     document.querySelector(activePlayer['div']).appendChild(cardImg);
     HIT_SOUND.play();
+   }
 }
 
 //Deal button 
@@ -47,6 +48,14 @@ function blackJackDeal(){
     for(let i = 0; i<dealerImages.length; i++){
         dealerImages[i].remove();
     }
+    YOU['score'] = 0;
+    DEALER['score'] = 0;
+
+    document.querySelector('#your-black-jack-result').textContent = 0;
+    document.querySelector('#your-black-jack-result').style.color = '#ffffff';
+    document.querySelector('#dealer-black-jack-result').textContent = 0;
+    document.querySelector('#dealer-black-jack-result').style.color = '#ffffff';
+
 }
 
 function updateScore(card, activePlayer){
@@ -65,9 +74,12 @@ function updateScore(card, activePlayer){
 }
 
 function showScore(card, activePlayer){
-   
+   if(activePlayer['score'] <= 21){
     document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score'];
+ }else{
+    document.querySelector(activePlayer['scoreSpan']).textContent = 'BUST!'; 
+    document.querySelector(activePlayer['scoreSpan']).style.color = 'red'; 
+ }
 }
-
 
 
