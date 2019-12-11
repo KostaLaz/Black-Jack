@@ -15,15 +15,22 @@ document.querySelector('#deal-btn').addEventListener('click', blackJackDeal);
 function blackJackHit(){
     let card = randomCard();
     console.log(card);
-   showCard(YOU);
-   showCard(DEALER);
+   showCard(card, YOU);
+   showCard(card, DEALER);
 }
-function showCard(activePlayer){
+
+function randomCard(){
+    let randomIndex = Math.floor(Math.random()*13);
+    return blackJackGame['cards'][randomIndex];
+  }
+
+function showCard(card, activePlayer){
     let cardImg = document.createElement('img');
-    cardImg.src = 'static/images/Q.png'
+    cardImg.src = `static/images/${card}.png`
     document.querySelector(activePlayer['div']).appendChild(cardImg);
     HIT_SOUND.play();
 }
+
 function blackJackDeal(){
     let yourImages = document.querySelector('#your-box').querySelectorAll('img');
     let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img');
@@ -34,9 +41,6 @@ function blackJackDeal(){
         dealerImages[i].remove();
     }
 }
-function randomCard(){
-  let randomIndex = Math.floor(Math.random()*13);
-  return blackJackGame['cards'][randomIndex];
-}
+
 
 
