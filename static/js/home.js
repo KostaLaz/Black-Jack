@@ -50,10 +50,22 @@ function blackJackDeal(){
 }
 
 function updateScore(card, activePlayer){
-activePlayer['score'] += blackJackGame['cardsMap'][card];
+     //If adding 11 keeps me below 21, add 11 else add 1.
+     if(card === 'A'){
+    
+        if(activePlayer['score'] + blackJackGame['cardsMap'][card][1] <= 21){
+        activePlayer['score'] += blackJackGame['cardsMap'][card][1];
+    }else{
+        activePlayer['score'] += blackJackGame['cardsMap'][card][0];
+    }
+    
+    }else{
+        activePlayer['score'] += blackJackGame['cardsMap'][card];
+    }
 }
 
 function showScore(card, activePlayer){
+   
     document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score'];
 }
 
