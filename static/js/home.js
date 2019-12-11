@@ -32,5 +32,9 @@ function blackJackDeal(){
         dealerImages[i].remove();
     }
 }
+function randomCard(){
+  let randomIndex = Math.floor().Math.random()*13;
+  return blackJackGame['cards'][randomIndex];
+}
 
 
