@@ -18,7 +18,9 @@ function blackJackHit(){
     let card = randomCard();
     console.log(card);
    showCard(card, YOU);
-   showCard(card, DEALER);
+   updateScore(card, YOU);
+   showScore(card, YOU);
+   console.log(YOU['score']);
 }
 
 //Choose a random card from the deck
@@ -45,6 +47,14 @@ function blackJackDeal(){
     for(let i = 0; i<dealerImages.length; i++){
         dealerImages[i].remove();
     }
+}
+
+function updateScore(card, activePlayer){
+activePlayer['score'] += blackJackGame['cardsMap'][card];
+}
+
+function showScore(card, activePlayer){
+    document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score'];
 }
 
 
