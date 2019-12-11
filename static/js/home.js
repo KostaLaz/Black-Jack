@@ -1,6 +1,7 @@
 let blackJackGame = {
     'you': {'scoreSpan': '#your-black-jack-result', 'div': '#your-box', 'score': 0},
-    'dealer': {'scoreSpan': '#dealer-black-jack-result', 'div': '#dealer-box', 'score': 0} 
+    'dealer': {'scoreSpan': '#dealer-black-jack-result', 'div': '#dealer-box', 'score': 0}, 
+    'cards': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'K', 'Q', 'J', 'A'],
 
 };
 
@@ -31,4 +32,5 @@ function blackJackDeal(){
         dealerImages[i].remove();
     }
 }
+
 
