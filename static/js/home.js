@@ -11,6 +11,9 @@ const DEALER = blackJackGame['dealer'];
 const HIT_SOUND = new Audio('static/sounds/swish.m4a');
 
 document.querySelector('#hit-btn').addEventListener('click', blackJackHit);
+
+document.querySelector('#stand-btn').addEventListener('click', dealerLogic);
+
 document.querySelector('#deal-btn').addEventListener('click', blackJackDeal);
 
 //Hit button
@@ -82,4 +85,35 @@ function showScore(card, activePlayer){
  }
 }
 
+function dealerLogic(){
+    let card = randomCard();
+    showCard(card, DEALER);
+    updateScore(card, DEALER );
+    showScore(card, DEALER);
+}
+//Comupte the winner and show who won
+function cumputeWinner(){
+    let winner;
+    if(YOU['score'] <= 21){
+        //Condition: higher score than dealer or dealer busts
+        if(YOU['score'] > DEALER['score'] || DEALER['score'] > 21){
+            console.log('You won!!');
+            winner = YOU;
+        }else if(YOU['score'] < DEALER['score']){
+            console.log('You lost!!');
+            winner = DEALER;
+        }else if(YOU['score'] === DEALER['score']){
+            console.log('DRAW!!');
+        }
+         //Condition: when user busts but dealer doesent
+    }else if(YOU['score'] > 21 && DEALER['score'] <= 21){
+        console.log('You lost!!');
+        winner = DEALER;
+
+        //Condition: when both bust
+    }else if(YOU['score'] > 21 && DEALER['score'] > 21){
+         console.log('DRAW!!')
+    }
+    return winner;
+}
 
