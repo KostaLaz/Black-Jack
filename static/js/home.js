@@ -20,6 +20,7 @@ document.querySelector('#deal-btn').addEventListener('click', blackJackDeal);
 function blackJackHit(){
     let card = randomCard();
     console.log(card);
+
    showCard(card, YOU);
    updateScore(card, YOU);
    showScore(card, YOU);
@@ -43,12 +44,13 @@ function showCard(card, activePlayer){
 
 //Deal button 
 function blackJackDeal(){
+    whoWins();
     let yourImages = document.querySelector('#your-box').querySelectorAll('img');
     let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img');
-    for(let i = 0; yourImages.length; i++){
+    for(let i = 0; i < yourImages.length; i++){
         yourImages[i].remove();
     }
-    for(let i = 0; i<dealerImages.length; i++){
+    for(let i = 0; i< dealerImages.length; i++){
         dealerImages[i].remove();
     }
     YOU['score'] = 0;
@@ -67,6 +69,7 @@ function updateScore(card, activePlayer){
     
         if(activePlayer['score'] + blackJackGame['cardsMap'][card][1] <= 21){
         activePlayer['score'] += blackJackGame['cardsMap'][card][1];
+        console.log(activePlayer['score'])
     }else{
         activePlayer['score'] += blackJackGame['cardsMap'][card][0];
     }
@@ -92,8 +95,10 @@ function dealerLogic(){
     showScore(card, DEALER);
 }
 //Comupte the winner and show who won
-function cumputeWinner(){
+function whoWins(){
+
     let winner;
+
     if(YOU['score'] <= 21){
         //Condition: higher score than dealer or dealer busts
         if(YOU['score'] > DEALER['score'] || DEALER['score'] > 21){
@@ -114,6 +119,9 @@ function cumputeWinner(){
     }else if(YOU['score'] > 21 && DEALER['score'] > 21){
          console.log('DRAW!!')
     }
+    console.log('Winner is ' + winner);
+
     return winner;
 }
+
 
